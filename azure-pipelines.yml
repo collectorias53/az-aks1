@@ -6,8 +6,6 @@
 trigger:
 - none
 
-variables:
-  - group: Helm and Terraform variables
 
 pool:
   vmImage: ubuntu-latest
@@ -18,10 +16,10 @@ steps:
     provider: 'azurerm'
     command: 'init'
     backendServiceArm: 'spconnection'
-    backendAzureRmResourceGroupName: '$(backendResourceGroup)'
-    backendAzureRmStorageAccountName: '$(backendStorageAccount)'
-    backendAzureRmContainerName: '$(backendContainer)'
-    backendAzureRmKey: '$(backendKey)'
+    backendAzureRmResourceGroupName: 'rg-stage-eastus-01-env'
+    backendAzureRmStorageAccountName: 'stwebstage01'
+    backendAzureRmContainerName: 'backendado1'
+    backendAzureRmKey: 'terraform.tfstate4'
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
